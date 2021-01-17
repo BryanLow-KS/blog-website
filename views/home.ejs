@@ -1,0 +1,20 @@
+<%- include("partials/header") -%>
+<!-- ejs already knows to look for partials in the views folder -->
+
+<h1>Home</h1>
+<p><%= homeStartingContent %></p>
+
+<!-- better alternative to loop through arrays -->
+<%  posts.forEach(function(post){ %>
+    <h1><%= post.title %></h1>
+    <p>
+      <%= post.content.substring(0,100) + "..." %>
+      <a href="/posts/<%= post.title %>">Read more</a>
+    </p>
+<%  }) %>
+<!-- post is the name we give every element while we loop through, single form of array -->
+<!-- each post is an object with 2 properties  -->
+<!-- h1 and p are just html tags, therefore no need js scriplet tag -->
+
+
+<%- include("partials/footer") -%>
